@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.vehicleidentificationsystem.PoliceRecordsController"
+      style="-fx-background-color: #f5f7fa;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="POLICE RECORDS" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <Separator/>
+
+    <TableView fx:id="violationTable" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colVehicleReg" text="Vehicle Reg" prefWidth="120"/>
+            <TableColumn fx:id="colViolationType" text="Violation Type" prefWidth="150"/>
+            <TableColumn fx:id="colFine" text="Fine" prefWidth="100"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+</VBox>

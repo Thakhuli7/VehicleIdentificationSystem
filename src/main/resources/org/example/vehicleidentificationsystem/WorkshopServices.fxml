@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.vehicleidentificationsystem.WorkshopServicesController"
+      style="-fx-background-color: #f5f7fa;">
+
+    <padding>
+        <Insets top="25" right="30" bottom="25" left="30"/>
+    </padding>
+
+    <!-- Header -->
+    <VBox spacing="5">
+        <Label text="🔧 WORKSHOP SERVICES"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Label text="Track vehicle service records and maintenance"
+               style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+        <Separator style="-fx-background-color: #3498db; -fx-pref-height: 3;"/>
+    </VBox>
+
+    <!-- Search and Add -->
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Search by vehicle registration or invoice..."
+                   style="-fx-pref-width: 300; -fx-padding: 10; -fx-background-radius: 5;"/>
+        <Button text="🔍 Search" onAction="#searchServices"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"/>
+        <Button text="➕ Add Service Record" onAction="#showAddDialog"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="📥 Export" onAction="#exportServices"
+                style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"/>
+    </HBox>
+
+    <!-- Service Table -->
+    <TableView fx:id="serviceTable" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colServiceId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colVehicleReg" text="Vehicle Reg" prefWidth="120"/>
+            <TableColumn fx:id="colServiceDate" text="Service Date" prefWidth="100"/>
+            <TableColumn fx:id="colServiceType" text="Service Type" prefWidth="120"/>
+            <TableColumn fx:id="colDescription" text="Description" prefWidth="200"/>
+            <TableColumn fx:id="colCost" text="Cost" prefWidth="80"/>
+            <TableColumn fx:id="colMechanic" text="Mechanic" prefWidth="120"/>
+            <TableColumn fx:id="colNextService" text="Next Service" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Action Buttons -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="✏️ Edit Record" onAction="#editService"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+        <Button text="🗑️ Delete Record" onAction="#deleteService"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+        <Button text="📄 View Invoice" onAction="#viewInvoice"
+                style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+        <Button text="⏰ Service Due Reminders" onAction="#showReminders"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+    </HBox>
+
+    <!-- Status Bar -->
+    <HBox style="-fx-background-color: #2c3e50; -fx-background-radius: 5; -fx-padding: 8 15;">
+        <Label fx:id="statusLabel" text="Ready" style="-fx-text-fill: white;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="Total Service Records: " style="-fx-text-fill: #7f8c8d;"/>
+        <Label fx:id="totalRecordsLabel" text="0" style="-fx-text-fill: #3498db; -fx-font-weight: bold;"/>
+    </HBox>
+
+</VBox>

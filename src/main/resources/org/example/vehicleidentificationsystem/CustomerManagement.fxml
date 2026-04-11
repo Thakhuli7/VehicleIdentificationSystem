@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.vehicleidentificationsystem.CustomerManagementController"
+      style="-fx-background-color: #f5f7fa;">
+
+    <padding>
+        <Insets top="25" right="30" bottom="25" left="30"/>
+    </padding>
+
+    <!-- Header -->
+    <VBox spacing="5">
+        <Label text="👥 CUSTOMER MANAGEMENT"
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Label text="Manage customer information and vehicle ownership"
+               style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+        <Separator style="-fx-background-color: #3498db; -fx-pref-height: 3;"/>
+    </VBox>
+
+    <!-- Search Bar -->
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Search by name, email, or phone..."
+                   style="-fx-pref-width: 300; -fx-padding: 10; -fx-background-radius: 5;"/>
+        <Button text="🔍 Search" onAction="#searchCustomers"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"/>
+        <Button text="➕ Add New Customer" onAction="#showAddDialog"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="📥 Export" onAction="#exportCustomers"
+                style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-padding: 10 20; -fx-background-radius: 5;"/>
+    </HBox>
+
+    <!-- Customer Table -->
+    <TableView fx:id="customerTable" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colCustomerId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colName" text="Name" prefWidth="150"/>
+            <TableColumn fx:id="colPhone" text="Phone" prefWidth="120"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="200"/>
+            <TableColumn fx:id="colAddress" text="Address" prefWidth="200"/>
+            <TableColumn fx:id="colLicense" text="Driver License" prefWidth="120"/>
+            <TableColumn fx:id="colLoyaltyPoints" text="Loyalty Points" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Action Buttons -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="✏️ Edit Selected" onAction="#editCustomer"
+                style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+        <Button text="🗑️ Delete Selected" onAction="#deleteCustomer"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+        <Button text="🚗 View Vehicles" onAction="#viewCustomerVehicles"
+                style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+        <Button text="📋 View Queries" onAction="#viewCustomerQueries"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-padding: 8 20; -fx-background-radius: 5;"/>
+    </HBox>
+
+    <!-- Status Bar -->
+    <HBox style="-fx-background-color: #2c3e50; -fx-background-radius: 5; -fx-padding: 8 15;">
+        <Label fx:id="statusLabel" text="Ready" style="-fx-text-fill: white;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="Total Customers: " style="-fx-text-fill: #7f8c8d;"/>
+        <Label fx:id="totalCustomersLabel" text="0" style="-fx-text-fill: #3498db; -fx-font-weight: bold;"/>
+    </HBox>
+
+</VBox>
