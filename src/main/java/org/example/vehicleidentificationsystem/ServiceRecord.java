@@ -13,6 +13,7 @@ public class ServiceRecord {
     private LocalDate nextServiceDate;
     private String serviceCenter;
     private String invoiceNumber;
+    private String vehicleRegNumber;  // ADDED: For displaying vehicle registration in table
 
     // Constructor
     public ServiceRecord(int serviceId, int vehicleId, LocalDate serviceDate, String serviceType,
@@ -28,6 +29,7 @@ public class ServiceRecord {
         this.nextServiceDate = nextServiceDate;
         this.serviceCenter = serviceCenter;
         this.invoiceNumber = invoiceNumber;
+        this.vehicleRegNumber = "";
     }
 
     // Getters and Setters
@@ -60,4 +62,8 @@ public class ServiceRecord {
 
     public String getInvoiceNumber() { return invoiceNumber; }
     public void setInvoiceNumber(String invoiceNumber) { this.invoiceNumber = invoiceNumber; }
+
+    // ADDED: Getter and Setter for vehicleRegNumber
+    public String getVehicleRegNumber() { return vehicleRegNumber; }
+    public void setVehicleRegNumber(String vehicleRegNumber) { this.vehicleRegNumber = vehicleRegNumber; }
 }

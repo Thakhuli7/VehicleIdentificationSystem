@@ -3,172 +3,155 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.vehicleidentificationsystem.DashboardController"
-            style="-fx-background-color: #f5f7fa;">
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.vehicleidentificationsystem.DashboardController"
+      alignment="TOP_CENTER" prefWidth="1100" prefHeight="750"
+      style="-fx-background-color: linear-gradient(to bottom right, #f0f2f5, #e8ecf1);">
 
-    <!-- ========== TOP MENU BAR - BRIGHT COLORS ========== -->
-    <top>
-        <MenuBar style="-fx-background-color: linear-gradient(to bottom, #3498db, #2980b9); -fx-border-color: #2980b9; -fx-border-width: 0 0 2 0;">
-            <menus>
-                <Menu text="File" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;">
-                    <items>
-                        <MenuItem fx:id="exitMenuItem" text="Exit" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                    </items>
-                </Menu>
-                <Menu text="Modules" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;">
-                    <items>
-                        <MenuItem fx:id="customerMenuItem" text="👤 Customer Management" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                        <MenuItem fx:id="vehicleMenuItem" text="🚗 Vehicle Management" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                        <MenuItem fx:id="workshopMenuItem" text="🔧 Workshop Services" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                        <MenuItem fx:id="insuranceMenuItem" text="📋 Insurance Tracking" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                        <MenuItem fx:id="policeMenuItem" text="👮 Police Records" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                        <SeparatorMenuItem />
-                        <MenuItem fx:id="reportsMenuItem" text="📊 Generate Reports" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                    </items>
-                </Menu>
-                <Menu text="Help" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;">
-                    <items>
-                        <MenuItem fx:id="aboutMenuItem" text="ℹ️ About" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                        <MenuItem text="📚 Documentation" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-    </top>
+    <padding>
+        <Insets top="15" right="20" bottom="15" left="20"/>
+    </padding>
 
-    <!-- ========== MAIN CONTENT ========== -->
-    <center>
-        <VBox spacing="20" style="-fx-background-color: #f5f7fa;">
-            <padding>
-                <Insets top="25" right="30" bottom="25" left="30"/>
-            </padding>
+    <!-- ========== LIGHT COLORED MENU BAR WITH EMOJIS ========== -->
+    <MenuBar style="-fx-background-color: #ecf0f1; -fx-border-color: #bdc3c7; -fx-border-width: 0 0 1 0;">
+        <menus>
+            <!-- FILE MENU - LIGHT BLUE -->
+            <Menu text="📁 FILE" style="-fx-text-fill: #2980b9; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-color: #d6eaf8;">
+                <items>
+                    <MenuItem fx:id="exitMenuItem" text="🚪 Exit" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                </items>
+            </Menu>
 
-            <!-- ========== HEADER SECTION ========== -->
-            <VBox spacing="5">
-                <Label text="VEHICLE IDENTIFICATION SYSTEM"
-                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Segoe UI';"/>
-                <Label text="Manage and Track Vehicle Information"
-                       style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d; -fx-font-family: 'Segoe UI';"/>
-                <Separator style="-fx-background-color: #3498db; -fx-pref-height: 3;"/>
-            </VBox>
+            <!-- MODULES MENU - LIGHT GREEN -->
+            <Menu text="⚙️ MODULES" style="-fx-text-fill: #27ae60; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-color: #d5f5e3;">
+                <items>
+                    <MenuItem fx:id="customerMenuItem" text="👥 Customer Management" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <MenuItem fx:id="vehicleMenuItem" text="🚗 Vehicle Management" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <MenuItem fx:id="workshopMenuItem" text="🔧 Workshop Services" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <MenuItem fx:id="insuranceMenuItem" text="📋 Insurance Tracking" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <MenuItem fx:id="policeMenuItem" text="👮 Police Records" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem fx:id="reportsMenuItem" text="📊 Generate Reports" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                </items>
+            </Menu>
 
-            <!-- ========== CONTROL PANEL ========== -->
-            <HBox spacing="20" alignment="CENTER_LEFT">
-                <Button fx:id="loadButton" text="LOAD SYSTEM DATA"
-                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 25 10 25; -fx-background-radius: 25; -fx-cursor: hand;"/>
+            <!-- HELP MENU - LIGHT ORANGE -->
+            <Menu text="❓ HELP" style="-fx-text-fill: #e67e22; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-color: #fdebd0;">
+                <items>
+                    <MenuItem fx:id="aboutMenuItem" text="ℹ️ About" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;"/>
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
 
-                <Button fx:id="refreshButton" text="🔄 Refresh"
-                        style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 20 10 20; -fx-background-radius: 25; -fx-cursor: hand;"
-                        onAction="#refreshData"/>
+    <!-- ========== HEADER ========== -->
+    <VBox spacing="5">
+        <Label text="🚗 VEHICLE IDENTIFICATION SYSTEM"
+               style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Label text="📊 Manage and Track Vehicle Information in Real-Time"
+               style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;"/>
+        <Separator style="-fx-background-color: #3498db; -fx-pref-height: 3;"/>
+    </VBox>
 
-                <Button fx:id="exportButton" text="📥 Export Data"
-                        style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 20 10 20; -fx-background-radius: 25; -fx-cursor: hand;"
-                        onAction="#exportData"/>
+    <!-- ========== CONTROL PANEL ========== -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Button fx:id="loadButton" text="🔄 LOAD SYSTEM DATA"
+                style="-fx-background-color: linear-gradient(to bottom, #3498db, #2980b9); -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 10 25; -fx-background-radius: 25;"/>
+        <Button fx:id="refreshButton" text="♻️ REFRESH"
+                style="-fx-background-color: linear-gradient(to bottom, #27ae60, #1e8449); -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 10 25; -fx-background-radius: 25;"/>
+        <Button fx:id="exportButton" text="📥 EXPORT"
+                style="-fx-background-color: linear-gradient(to bottom, #e67e22, #d35400); -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 10 25; -fx-background-radius: 25;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <ProgressIndicator fx:id="progressIndicator" visible="false" prefWidth="25" prefHeight="25"/>
+            <ProgressBar fx:id="progressBar" visible="false" prefWidth="200" prefHeight="8"/>
+        </HBox>
+    </HBox>
 
-                <Region HBox.hgrow="ALWAYS" />
-
-                <HBox spacing="10" alignment="CENTER_RIGHT">
-                    <ProgressIndicator fx:id="progressIndicator" visible="false" prefWidth="30" prefHeight="30"/>
-                    <ProgressBar fx:id="progressBar" visible="false" prefWidth="200" prefHeight="10"/>
-                </HBox>
-            </HBox>
-
-            <!-- ========== STATISTICS CARDS ========== -->
-            <HBox spacing="15">
-                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 15 25 15 25;">
-                    <Label text="Total Vehicles" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
-                    <Label fx:id="totalVehiclesLabel" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
-                </VBox>
-                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 15 25 15 25;">
-                    <Label text="New Vehicles" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
-                    <Label fx:id="newVehiclesLabel" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
-                </VBox>
-                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-padding: 15 25 15 25;">
-                    <Label text="Insurance Active" style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
-                    <Label fx:id="insuranceLabel" text="0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #e67e22;"/>
-                </VBox>
-                <Region HBox.hgrow="ALWAYS" />
-            </HBox>
-
-            <!-- ========== MAIN CONTENT AREA (Table + ScrollPane Side by Side) ========== -->
-            <HBox spacing="20">
-                <!-- Left: Vehicle Table -->
-                <VBox spacing="10" HBox.hgrow="ALWAYS">
-                    <Label text="📋 VEHICLE REGISTRATION RECORDS"
-                           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-
-                    <TableView fx:id="vehicleTable" prefHeight="350"
-                               style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
-                        <columns>
-                            <TableColumn fx:id="colVehicleId" text="ID" prefWidth="60"/>
-                            <TableColumn fx:id="colRegistrationNo" text="Registration No" prefWidth="140"/>
-                            <TableColumn fx:id="colMake" text="Make" prefWidth="120"/>
-                            <TableColumn fx:id="colModel" text="Model" prefWidth="120"/>
-                            <TableColumn fx:id="colYear" text="Year" prefWidth="80"/>
-                            <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
-                        </columns>
-                        <placeholder>
-                            <Label text="No vehicle data. Click 'LOAD SYSTEM DATA' to begin."
-                                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 14px;"/>
-                        </placeholder>
-                    </TableView>
-
-                    <!-- Pagination -->
-                    <HBox alignment="CENTER_RIGHT">
-                        <Pagination fx:id="pagination" pageCount="1" style="-fx-background-color: transparent;"/>
-                    </HBox>
-                </VBox>
-
-                <!-- Right: ScrollPane Vehicle List -->
-                <VBox spacing="10" prefWidth="280">
-                    <Label text="📋 VEHICLE LIST"
-                           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
-
-                    <ScrollPane fx:id="vehicleScrollPane" prefHeight="350"
-                                style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
-                        <content>
-                            <VBox spacing="8" style="-fx-padding: 15;">
-                                <padding>
-                                    <Insets top="10" right="10" bottom="10" left="10"/>
-                                </padding>
-
-                                <Label text="🚗 Toyota Camry 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚙 Honda Civic 2021" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚘 Ford Mustang 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚖 BMW X5 2024" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚗 Mercedes C-Class 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚙 Audi A4 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚘 Tesla Model 3 2024" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚖 Hyundai Elantra 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚗 Kia Sportage 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚙 Nissan Altima 2021" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚘 Chevrolet Malibu 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚖 Volkswagen Jetta 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚗 Subaru Outback 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚙 Mazda CX-5 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚘 Lexus RX 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚖 Jeep Grand Cherokee 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚗 Dodge Charger 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚙 Ford Explorer 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚘 Toyota RAV4 2022" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                                <Label text="🚖 Honda CR-V 2023" style="-fx-padding: 8; -fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
-                            </VBox>
-                        </content>
-                    </ScrollPane>
-                </VBox>
-            </HBox>
-
-            <!-- ========== STATUS BAR ========== -->
-            <HBox style="-fx-background-color: #2c3e50; -fx-background-radius: 5; -fx-padding: 8 15 8 15;">
-                <Label fx:id="statusLabel" text="Ready" style="-fx-text-fill: white; -fx-font-size: 12px;"/>
-                <Region HBox.hgrow="ALWAYS" />
-                <Label text="🔒 Secure Connection | PostgreSQL Active" style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
-            </HBox>
-
+    <!-- ========== STATISTICS CARDS ========== -->
+    <HBox spacing="15">
+        <VBox style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 15 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+            <Label text="🚗 TOTAL VEHICLES" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="totalVehiclesLabel" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
         </VBox>
-    </center>
-</BorderPane>
+        <VBox style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 15 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+            <Label text="⭐ NEW VEHICLES" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="newVehiclesLabel" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+        </VBox>
+        <VBox style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 15 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+            <Label text="📋 ACTIVE INSURANCE" style="-fx-font-size: 11px; -fx-text-fill: #7f8c8d;"/>
+            <Label fx:id="insuranceLabel" text="0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #e67e22;"/>
+        </VBox>
+    </HBox>
+
+    <!-- ========== TABLE AND SCROLLPANE ========== -->
+    <HBox spacing="20">
+
+        <!-- LEFT: TABLE -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="📋 VEHICLE REGISTRATION RECORDS" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+            <TableView fx:id="vehicleTable" prefHeight="350"
+                       style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);">
+                <columns>
+                    <TableColumn fx:id="colVehicleId" text="🆔 ID" prefWidth="50"/>
+                    <TableColumn fx:id="colRegistrationNo" text="📝 REGISTRATION" prefWidth="130"/>
+                    <TableColumn fx:id="colMake" text="🏭 MAKE" prefWidth="110"/>
+                    <TableColumn fx:id="colModel" text="🚙 MODEL" prefWidth="110"/>
+                    <TableColumn fx:id="colYear" text="📅 YEAR" prefWidth="70"/>
+                    <TableColumn fx:id="colStatus" text="✅ STATUS" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <!-- PAGINATION -->
+            <Pagination fx:id="pagination" style="-fx-background-color: transparent; -fx-padding: 10 0;"/>
+        </VBox>
+
+        <!-- RIGHT: SCROLLPANE -->
+        <VBox spacing="10" prefWidth="280">
+            <Label text="📋 QUICK VEHICLE LIST" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+            <ScrollPane fx:id="vehicleScrollPane" prefHeight="350"
+                        style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);"
+                        fitToWidth="true">
+                <content>
+                    <VBox spacing="8" style="-fx-padding: 12;">
+                        <Label text="🚗 Vehicle 1 - Toyota Camry" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚙 Vehicle 2 - Honda Civic" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚘 Vehicle 3 - Ford Mustang" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚖 Vehicle 4 - BMW X5" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚗 Vehicle 5 - Mercedes C-Class" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚙 Vehicle 6 - Audi A4" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚘 Vehicle 7 - Tesla Model 3" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚖 Vehicle 8 - Hyundai Elantra" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚗 Vehicle 9 - Kia Sportage" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚙 Vehicle 10 - Nissan Altima" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚘 Vehicle 11 - Chevrolet Malibu" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚖 Vehicle 12 - Volkswagen Jetta" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚗 Vehicle 13 - Subaru Outback" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚙 Vehicle 14 - Mazda CX-5" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚘 Vehicle 15 - Lexus RX" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚖 Vehicle 16 - Jeep Grand Cherokee" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚗 Vehicle 17 - Dodge Charger" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚙 Vehicle 18 - Ford Explorer" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚘 Vehicle 19 - Toyota RAV4" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                        <Label text="🚖 Vehicle 20 - Honda CR-V" style="-fx-padding: 8 12; -fx-background-color: #f8f9fa; -fx-background-radius: 8;"/>
+                    </VBox>
+                </content>
+            </ScrollPane>
+        </VBox>
+    </HBox>
+
+    <!-- ========== STATUS BAR ========== -->
+    <HBox style="-fx-background-color: #2c3e50; -fx-background-radius: 8; -fx-padding: 10 20;">
+        <Label fx:id="statusLabel" text="✅ Ready" style="-fx-text-fill: #ecf0f1; -fx-font-size: 12px;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="🔐 Secure SSL Connection" style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+        <Label text="●" style="-fx-text-fill: #27ae60; -fx-font-size: 10px; -fx-padding: 0 8 0 8;"/>
+        <Label text="🐘 PostgreSQL Active" style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+        <Label text="●" style="-fx-text-fill: #27ae60; -fx-font-size: 10px; -fx-padding: 0 8 0 8;"/>
+        <Label text="🟢 Real-time Sync" style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+    </HBox>
+
+</VBox>

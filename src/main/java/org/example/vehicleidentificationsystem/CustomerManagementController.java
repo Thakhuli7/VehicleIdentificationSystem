@@ -4,7 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.stage.Stage;
+import javafx.scene.control.cell.PropertyValueFactory;
+import java.sql.*;
 
 public class CustomerManagementController {
 
@@ -22,67 +23,57 @@ public class CustomerManagementController {
     @FXML private Label totalCustomersLabel;
 
     private ObservableList<Customer> customerList = FXCollections.observableArrayList();
+    private DatabaseConnection dbConnection;
 
     @FXML
     public void initialize() {
-        updateStatus("Customer Management module loaded");
-        loadSampleData();
+        dbConnection = new DatabaseConnection();
+
+        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colLicense.setCellValueFactory(new PropertyValueFactory<>("driverLicense"));
+        colLoyaltyPoints.setCellValueFactory(new PropertyValueFactory<>("loyaltyPoints"));
+
+        loadCustomers();
     }
 
-    // FIXED: Updated to use correct constructor (id, name, phone, email)
-    private void loadSampleData() {
-        customerList.clear();
-        // Using the 4-parameter constructor that matches your Customer class
-        customerList.add(new Customer(1, "John Smith", "555-0101", "john@email.com"));
-        customerList.add(new Customer(2, "Sarah Johnson", "555-0102", "sarah@email.com"));
-        customerList.add(new Customer(3, "Michael Brown", "555-0103", "michael@email.com"));
-        customerList.add(new Customer(4, "Emily Davis", "555-0104", "emily@email.com"));
-        customerList.add(new Customer(5, "David Wilson", "555-0105", "david@email.com"));
+    private void loadCustomers() {
+        try {
+            customerList.clear();
+            String query = "SELECT customer_id, name, address, phone, email, driver_license, loyalty_points FROM Customer";
+            ResultSet rs = dbConnection.executeQuery(query);
 
-        customerTable.setItems(customerList);
-        totalCustomersLabel.setText(String.valueOf(customerList.size()));
+            while (rs.next()) {
+                Customer c = new Customer(
+                        rs.getInt("customer_id"),
+                        rs.getString("name"),
+                        rs.getString("address"),
+                        rs.getString("phone"),
+                        rs.getString("email"),
+                        rs.getString("driver_license"),
+                        null, null,
+                        rs.getInt("loyalty_points")
+                );
+                customerList.add(c);
+            }
+            customerTable.setItems(customerList);
+            totalCustomersLabel.setText(String.valueOf(customerList.size()));
+            updateStatus("Loaded " + customerList.size() + " customers");
+        } catch (SQLException e) {
+            updateStatus("Database error: " + e.getMessage());
+        }
     }
 
-    @FXML
-    private void searchCustomers() {
-        updateStatus("Searching: " + searchField.getText());
-    }
-
-    @FXML
-    private void showAddDialog() {
-        updateStatus("Add customer feature coming soon");
-    }
-
-    @FXML
-    private void editCustomer() {
-        updateStatus("Edit customer feature coming soon");
-    }
-
-    @FXML
-    private void deleteCustomer() {
-        updateStatus("Delete customer feature coming soon");
-    }
-
-    @FXML
-    private void viewCustomerVehicles() {
-        updateStatus("View vehicles feature coming soon");
-    }
-
-    @FXML
-    private void viewCustomerQueries() {
-        updateStatus("View queries feature coming soon");
-    }
-
-    @FXML
-    private void exportCustomers() {
-        updateStatus("Export feature coming soon");
-    }
-
-    @FXML
-    private void closeWindow() {
-        Stage stage = (Stage) customerTable.getScene().getWindow();
-        stage.close();
-    }
+    @FXML private void searchCustomers() { updateStatus("Search: " + searchField.getText()); }
+    @FXML private void showAddDialog() { updateStatus("Add customer - coming soon"); }
+    @FXML private void editCustomer() { updateStatus("Edit customer - coming soon"); }
+    @FXML private void deleteCustomer() { updateStatus("Delete customer - coming soon"); }
+    @FXML private void viewCustomerVehicles() { updateStatus("View vehicles - coming soon"); }
+    @FXML private void viewCustomerQueries() { updateStatus("View queries - coming soon"); }
+    @FXML private void exportCustomers() { updateStatus("Export - coming soon"); }
 
     private void updateStatus(String message) {
         if (statusLabel != null) {

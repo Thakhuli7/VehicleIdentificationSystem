@@ -1,0 +1,25 @@
+ID,Registration,Make,Model,Year,Color,Mileage,Status
+1,ABC123,Toyota,Camry,2024,Silver,5000,Active
+2,XYZ789,Honda,Civic,2023,Black,12000,Active
+3,DEF456,Ford,Mustang,2022,Red,25000,Active
+5,JKL012,Mercedes,C-Class,2023,Blue,15000,Active
+6,MNO345,Audi,A4,2022,Gray,35000,Active
+7,PQR678,Tesla,Model 3,2024,White,5000,Active
+8,STU901,Hyundai,Elantra,2023,Blue,18000,Active
+9,VWX234,Kia,Sportage,2022,Red,28000,Active
+10,YZA567,Nissan,Altima,2021,Black,45000,Active
+11,BCD890,Chevrolet,Malibu,2022,Silver,22000,Active
+12,EFG123,Volkswagen,Jetta,2023,White,12000,Active
+13,HIJ456,Subaru,Outback,2022,Green,30000,Active
+14,KLM789,Mazda,CX-5,2023,Red,15000,Active
+15,NOP012,Lexus,RX,2022,Black,25000,Active
+16,QRS345,Jeep,Wrangler,2024,Yellow,2000,Active
+17,TUV678,Dodge,Charger,2023,Orange,8000,Active
+18,WXY901,Porsche,911,2024,Red,1000,Active
+19,ZAB234,Ferrari,488,2023,Red,3000,Active
+20,CDE567,Lamborghini,Huracan,2024,Green,500,Active
+21,FGH890,Acura,MDX,2023,White,10000,Active
+22,IJK123,Infiniti,Q50,2022,Blue,20000,Active
+23,LMN456,Volvo,XC90,2024,Silver,4000,Active
+24,OPQ789,Mini,Cooper,2023,Red,8000,Active
+25,RST012,Jaguar,F-Pace,2022,Black,18000,Active

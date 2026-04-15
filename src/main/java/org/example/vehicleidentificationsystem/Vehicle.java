@@ -10,6 +10,8 @@ public class Vehicle {
     private String model;
     private int year;
     private String status;  // New field for vehicle status
+    private String color;   // ADDED: Vehicle color
+    private int mileage;    // ADDED: Vehicle mileage
 
     // Constructor 1: Original constructor
     public Vehicle(int vehicleId, String registrationNumber, String make, String model, int year) {
@@ -19,6 +21,8 @@ public class Vehicle {
         this.model = model;
         this.year = year;
         this.status = calculateStatus();  // Auto-calculate status based on year
+        this.color = "";
+        this.mileage = 0;
     }
 
     // Constructor 2: Constructor with status parameter
@@ -29,6 +33,8 @@ public class Vehicle {
         this.model = model;
         this.year = year;
         this.status = status;
+        this.color = "";
+        this.mileage = 0;
     }
 
     // Getters and Setters (Encapsulation)
@@ -79,6 +85,24 @@ public class Vehicle {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    // ADDED: Getter and Setter for color
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    // ADDED: Getter and Setter for mileage
+    public int getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
 
     // Method to calculate vehicle status based on year

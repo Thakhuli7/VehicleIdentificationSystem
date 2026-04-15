@@ -13,7 +13,7 @@ public class MainApp extends Application {
                 getClass().getResource("/org/example/vehicleidentificationsystem/dashboard.fxml")
         );
 
-        Scene scene = new Scene(loader.load(), 1200, 700);
+        Scene scene = new Scene(loader.load(), 1000, 700);
 
         stage.setTitle("Vehicle Identification System");
         stage.setScene(scene);
